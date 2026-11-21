@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# raw SOM course exports include faculty emails; only the email-free .db is public
+courseslist-*.csv
+
+.claude/
+.DS_Store
+.env

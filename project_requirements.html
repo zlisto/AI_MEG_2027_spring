@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project - AI for Media, Entertainment, and Games</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>!(function(){if(localStorage.getItem("theme")!=="light")document.documentElement.setAttribute("data-theme","dark");})();</script>
+  <style>
+    .content > * { max-width: 56rem; }
+    .content { padding-bottom: 60vh; }
+    .project-due { font-size: clamp(1.2rem, 2.4vw, 1.5rem); margin: 0 0 1rem; }
+    .project-jordan { font-size: 1.05rem; font-style: italic; margin: -0.5rem 0 1.25rem; opacity: 0.85; }
+    .tier-label { display: inline-block; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-size: 15px; margin-right: 6px; background: var(--pink-hot); color: #fff; }
+    .grading-table td:nth-child(2), .grading-table th:nth-child(2) { text-align: center; white-space: nowrap; }
+    .grading-table tr.total-row td { font-weight: 700; }
+    .grading-grouped tr:nth-child(even) { background: none; }
+    .grading-grouped tbody.grp-idea   td { background: rgba(255, 45, 149, 0.05); }
+    .grading-grouped tbody.grp-app    td { background: rgba(255, 45, 149, 0.08); }
+    .grading-grouped tbody.grp-report td { background: rgba(255, 45, 149, 0.05); }
+    .grading-grouped tbody.grp-slides td { background: rgba(255, 45, 149, 0.08); }
+    .grading-grouped tr.grp-head td { font-weight: 700; font-size: 17px; letter-spacing: 0.02em; text-transform: uppercase; }
+    .grading-grouped tbody.grp-idea   tr.grp-head td { background: rgba(255, 45, 149, 0.22); }
+    .grading-grouped tbody.grp-app    tr.grp-head td { background: rgba(255, 45, 149, 0.30); }
+    .grading-grouped tbody.grp-report tr.grp-head td { background: rgba(255, 45, 149, 0.22); }
+    .grading-grouped tbody.grp-slides tr.grp-head td { background: rgba(255, 45, 149, 0.30); }
+    .grading-grouped tr.grp-head td:last-child { text-align: right; }
+    .grading-grouped tr.total-row td { background: var(--bg-surface); }
+    .table-scroll { overflow-x: auto; }
+    .content h3 { color: #d1006b; }
+    [data-theme="dark"] .content h3 { color: #ff6bb5; }
+    .report-outline td:first-child { white-space: nowrap; width: 1%; }
+    [data-theme="dark"] .report-sections-table td strong,
+    [data-theme="dark"] .report-sections-table td code,
+    [data-theme="dark"] .grading-table td strong { color: #fff; }
+    .tts-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; padding: 0; border: none; border-radius: 999px; background: #111; color: #ff2d95; cursor: pointer; flex-shrink: 0; }
+    .tts-btn:hover { background: #000; color: #ff6bb5; }
+    .tts-btn[aria-pressed="true"] { box-shadow: 0 0 0 2px #ff2d95; }
+    .tts-btn svg { width: 1.2rem; height: 1.2rem; }
+    .tts-end { display: flex; justify-content: flex-end; margin: 0.35rem 0 0; }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+      <li><a href="project_requirements.html" class="active">Final Project</a></li>
+      <li><a href="grading.html">Grading</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+  </nav>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <a href="#overview">Overview</a>
+      <a href="#deliverables">What you submit</a>
+      <a href="#work">The work</a>
+      <a href="#report">Report</a>
+      <a href="#slides">Slides</a>
+      <a href="#repo">Repo</a>
+      <a href="#testing">Testing the app</a>
+      <a href="#grading">Grading</a>
+      <a href="#tips">Tips</a>
+    </div>
+
+    <div class="content">
+    <h1 id="overview">Final Project</h1>
+    <p class="page-subtitle">Make something people actually watch, hear, or play, using AI models and agents. Then show how you made it, what it cost, and what it means for the business of entertainment.</p>
+
+    <p class="project-due">Due <strong>date to be announced</strong> on Canvas</p>
+
+    <div class="assignment-box">
+      <h2>The big idea</h2>
+      <p>All semester you build pieces of a new creative stack: vision, image generation, AI voices, agents, reels, games, screenplays, and AI video. Now you put it together into one finished, shareable piece of work.</p>
+      <p>Pick a format: a short film, a series of short-form videos, a music video, an album or soundtrack, a 2D or 3D game, a mobile app, or a tool that helps creators make any of these. The best projects are ones a real audience would choose to watch, hear, or play, and ones a studio, label, brand, or creator could actually use.</p>
+    </div>
+
+    <h2 id="deliverables">What you submit</h2>
+    <div class="table-scroll">
+    <table class="report-sections-table">
+      <thead><tr><th>What</th><th>Where</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The work</strong></td><td>Canvas (link or file)</td><td>The finished film, videos, music, or playable game. See <a href="#work">The work</a>.</td></tr>
+        <tr><td><strong>GitHub repo</strong></td><td>Canvas (URL)</td><td>The code for your app, agents, or pipeline, with a README that explains how to run it. See <a href="#repo">Repo</a>.</td></tr>
+        <tr><td><strong>Report</strong> (<code>report.html</code>)</td><td>Canvas</td><td>A single HTML file, 10–15 pages when printed. See <a href="#report">Report</a>.</td></tr>
+        <tr><td><strong>Slide deck</strong> (<code>slides.html</code>)</td><td>Canvas</td><td>A single HTML file, 10 slides max. See <a href="#slides">Slides</a>.</td></tr>
+        <tr><td><strong>Behind-the-scenes video</strong></td><td>Canvas</td><td>A 2–3 minute screen recording of your pipeline or app making the work.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>Self-contained HTML:</strong> both HTML files should open by double-clicking them, on any computer, with every image showing. Ask your vibe coder to embed the images inside the file.</p>
+
+    <h2 id="work">The work</h2>
+    <ul>
+      <li><strong>Video:</strong> a short film (3–10 minutes) or a series of at least five short-form videos, posted somewhere people can watch (YouTube, TikTok, Instagram, or a shared link).</li>
+      <li><strong>Music:</strong> at least three finished tracks, or a soundtrack or music video, with a link people can listen to.</li>
+      <li><strong>Game:</strong> a playable 2D or 3D game, online or runnable from your repo, that takes at least five minutes to play.</li>
+      <li><strong>Creator tool:</strong> an app that helps people make any of the above, plus at least one finished piece made with it.</li>
+    </ul>
+    <p>Make it shareable. A real audience reaction (views, plays, comments, a playtest) is the strongest evidence you can bring.</p>
+
+    <h2 id="report">The report (10–15 pages)</h2>
+    <p>Write it for a smart entertainment executive who has never seen your work. Use these sections, in this order. Put screenshots and stills wherever they help.</p>
+    <div class="table-scroll">
+    <table class="report-sections-table report-outline">
+      <thead><tr><th>Section</th><th>What goes in it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Title + links</strong></td><td>Project name, your name, links to the work and the GitHub repo, and one sentence that says what you made.</td></tr>
+        <tr><td><strong>2. The pitch</strong></td><td>Who is the audience? Why would they watch, listen, or play? What is the hook?</td></tr>
+        <tr><td><strong>3. What is new here</strong></td><td>What already exists that is close? What does your work or tool do that those don't?</td></tr>
+        <tr><td><strong>4. How you made it</strong></td><td>Your creative pipeline, step by step: which models and agents you used for script, images, voice, music, video, or game, and why. Draw a diagram. Walk through one real piece from concept to finished cut.</td></tr>
+        <tr><td><strong>5. Cost + time</strong></td><td>What did it cost to make, in tokens, credits, and dollars? How long did it take? Compare that to making it the traditional way.</td></tr>
+        <tr><td><strong>6. Audience</strong></td><td>Who saw, heard, or played it, and what happened? Views, plays, comments, playtest notes.</td></tr>
+        <tr><td><strong>7. The business</strong></td><td>What does this mean for studios, labels, game companies, brands, or creators? Who wins, who loses, and what about rights, likeness, and disclosure?</td></tr>
+        <tr><td><strong>8. Limits + next steps</strong></td><td>What did AI do badly? What did you fix by hand? What would you make next with another month?</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>You can write it with AI assistance. You are responsible for every word and number in it.</p>
+
+    <h2 id="slides">The slide deck</h2>
+    <p>An HTML slide deck, <strong>10 slides max</strong>, that tells the story of your project in a few minutes. Use <strong>reveal.js</strong>: one HTML file that opens in any browser, moves with the arrow keys, and goes full screen with <strong>F</strong>. Ask your vibe coder in your own words, for example:</p>
+    <div class="assignment-box">
+      <p>Make me a slide deck called slides.html using reveal.js, loaded from a CDN. 10 slides max, following the outline in my report. Put my stills, screenshots, and diagram right inside the file so it still works when emailed. Big text, and the same look as my project.</p>
+    </div>
+
+    <h2 id="repo">The GitHub repo</h2>
+    <ul>
+      <li>All the code for your app, agents, or pipeline.</li>
+      <li>A <code>README.md</code> that says what it is and how to run it, step by step (or the link, if it is online).</li>
+      <li>A <code>.env.example</code> that lists the keys needed, with no real values. <strong>Never commit your real <code>.env</code> or any API key.</strong></li>
+      <li>Make the repo <strong>public</strong>, or if it is private, add the GitHub user <strong>zlisto</strong> as a collaborator.</li>
+    </ul>
+
+    <h2 id="testing">Testing the app</h2>
+    <p>If you built an app or game, the teaching staff will try it. Either <strong>put it online</strong> (and keep it up until grades are posted), or make it <strong>run locally from a fresh clone</strong> by following your README. If it is not running after 10 minutes of following your README, it gets 0 points for "The teaching staff can run it."</p>
+    <p>Your app should look for the <code>.env</code> file in your repo's folder first, then one folder above it. Use the key names <code>PORTKEY_API_KEY</code> or <code>OPENAI_API_KEY</code>, spelled exactly like that.</p>
+
+    <h2 id="grading">Grading (100 points)</h2>
+    <div class="table-scroll">
+    <table class="grading-table grading-grouped">
+      <thead><tr><th>Component</th><th>Points</th><th>What earns the top of the range</th></tr></thead>
+      <tbody class="grp-idea">
+        <tr class="grp-head"><td colspan="2">The work</td><td>40 points</td></tr>
+        <tr><td><strong>Concept + originality</strong></td><td>15</td><td>A fresh idea with a clear hook that a real audience would want.</td></tr>
+        <tr><td><strong>Craft + finish</strong></td><td>15</td><td>It looks, sounds, or plays like a finished piece, not a demo. Consistent characters, style, and pacing.</td></tr>
+        <tr><td><strong>Audience</strong></td><td>10</td><td>Real people watched, listened, or played, and you show what happened.</td></tr>
+      </tbody>
+      <tbody class="grp-app">
+        <tr class="grp-head"><td colspan="2">The build</td><td>20 points</td></tr>
+        <tr><td><strong>Pipeline + agents</strong></td><td>15</td><td>Smart use of AI models and agents, with real automation, not just copying prompts into a website.</td></tr>
+        <tr><td><strong>The teaching staff can run it</strong></td><td>5</td><td>Online, or runs from a fresh clone by following the README. Behind-the-scenes video shows it working.</td></tr>
+      </tbody>
+      <tbody class="grp-report">
+        <tr class="grp-head"><td colspan="2">The report</td><td>32 points</td></tr>
+        <tr><td><strong>Pitch + what is new</strong></td><td>6</td><td>A clear audience and an honest comparison to what already exists.</td></tr>
+        <tr><td><strong>How you made it</strong></td><td>10</td><td>A diagram and one real piece traced from concept to finished cut, with screenshots.</td></tr>
+        <tr><td><strong>Cost + time</strong></td><td>6</td><td>Real costs and hours, compared to the traditional way.</td></tr>
+        <tr><td><strong>The business</strong></td><td>8</td><td>A sharp take on what this means for the industry, including rights and disclosure.</td></tr>
+        <tr><td><strong>Design</strong></td><td>2</td><td>Clean, readable, with sharp stills and diagrams.</td></tr>
+      </tbody>
+      <tbody class="grp-slides">
+        <tr class="grp-head"><td colspan="2">The slides</td><td>8 points</td></tr>
+        <tr><td><strong>Content</strong></td><td>6</td><td>Tells the whole story in a few minutes, with the work itself front and center.</td></tr>
+        <tr><td><strong>Design</strong></td><td>2</td><td>Big readable text, a consistent style, and visuals that carry the story.</td></tr>
+      </tbody>
+      <tbody>
+        <tr class="total-row"><td>Total</td><td>100</td><td></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="tips">Tips</h2>
+    <ul>
+      <li><strong>Start with the audience, then the tech.</strong> "A horror short for people who love found-footage" beats "Use Veo and an agent."</li>
+      <li><strong>Lock your characters and style early.</strong> Consistency is what makes AI work look finished.</li>
+      <li><strong>Save as you go.</strong> Keep prompts, drafts, and screenshots for the report and the behind-the-scenes video.</li>
+      <li><strong>Finish something small first.</strong> A tight one-minute piece beats an unfinished ten-minute one. Then make it bigger.</li>
+    </ul>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <footer class="site-footer">
+    <p>© 2027 Tauhid Zaman</p>
+  </footer>
+</body>
+</html>

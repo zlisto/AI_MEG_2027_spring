@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instructions - AI for Media, Entertainment, and Games</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>!(function(){if(localStorage.getItem("theme")!=="light")document.documentElement.setAttribute("data-theme","dark");})();</script>
+  <style>
+    img.setup-shot {
+      display: block;
+      max-width: min(32rem, 100%);
+      margin: 0.75rem 0 1.35rem;
+      border-radius: 8px;
+    }
+    img.setup-shot:hover {
+      transform: none;
+    }
+    /* Enough empty space below the last section that #cursor can scroll
+       flush under the sticky top nav (same as earlier sections). */
+    .content {
+      padding-bottom: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html" class="active">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+      <li><a href="project_requirements.html">Final Project</a></li>
+      <li><a href="grading.html">Grading</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+  </nav>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <a href="#vscode">VS Code</a>
+      <a href="#portkey-key">Get Portkey API Key</a>
+      <a href="#connect-codex">Connect Codex to Portkey</a>
+      <a href="#python">Python</a>
+      <a href="#react">React + Node.js</a>
+      <a href="#github">GitHub</a>
+      <a href="#vibe-coding">Vibe Coding</a>
+      <a href="#cursor">Cursor (optional)</a>
+    </div>
+
+    <div class="content">
+      <h1>Setup Instructions</h1>
+
+      <h2 id="vscode">VS Code</h2>
+      <p>Visual Studio Code is the editor we use in class. Install it first; the sections below assume you are working in VS Code.</p>
+      <ul>
+        <li>Go to <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/</a></li>
+        <li>Click <strong>Download for Windows</strong> or <strong>Download for Mac</strong> (the site detects your OS)</li>
+        <li>Run the installer and accept the default options</li>
+        <li>Open VS Code and complete any first-run setup prompts</li>
+      </ul>
+
+      <h2 id="portkey-key">Get Portkey API Key</h2>
+      <p>You need a Yale Portkey API key before you configure Codex. Do not share the key, paste it into screenshots, or put it in homework zips or GitHub.</p>
+      <ol>
+        <li>
+          <p>Go to the <a href="https://app.portkey.ai/" target="_blank" rel="noopener noreferrer">Portkey AI website</a>. <strong>Before</strong> you click <strong>Single sign-on (SSO)</strong>, scroll down and check the box that says you agree to the <strong>Terms of Service &amp; Privacy Policy</strong>. It sits below the login buttons and is easy to miss — if it is unchecked, SSO often fails and looks like a login error. Then click <strong>Single sign-on (SSO)</strong> and sign in with your Yale email / NetID.</p>
+          <img class="setup-shot" src="images/image_terms_and_conditions.png" alt="Portkey login page showing SSO and the Terms of Service checkbox below it">
+        </li>
+        <li>
+          <p>In the top left, open <strong>Workspaces</strong> and choose <strong>SOMEDU MBA Core AI Class</strong>.</p>
+          <img class="setup-shot" src="images/image_portkey_workspace.webp" alt="Portkey workspaces menu with SOMEDU MBA Core AI Class selected">
+        </li>
+        <li>
+          <p>Open <strong>API Keys</strong>, then click the <strong>copy</strong> icon next to your key. Immediately paste the key into a plain text file (Notepad on Windows, TextEdit or Notes on Mac) and save it somewhere easy to find, such as your Desktop or Documents folder. You will need this key again in the Codex setup steps below — do not rely on only copying it to the clipboard.</p>
+          <img class="setup-shot" src="images/image_copy_key.webp" alt="Portkey API Keys page with copy icon next to your key">
+          <p>Do not put the key in homework folders, screenshots, or GitHub.</p>
+        </li>
+      </ol>
+
+      <h2 id="connect-codex">Connect Codex to Portkey</h2>
+      <p>You should now have VS Code installed and your Portkey API key saved in a text file. Next, install the Codex extension and connect it to that key. Pick your computer and follow the step-by-step guide:</p>
+      <ul>
+        <li><a href="setup-vibe-coder.html">Windows setup</a></li>
+        <li><a href="setup-vibe-coder-mac.html">Mac setup</a></li>
+      </ul>
+
+      <h2 id="python">Python</h2>
+      <h3>Install Python</h3>
+      <ul>
+        <li><strong>Windows:</strong>
+          <ul>
+            <li>Go to <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer">python.org/downloads/windows</a></li>
+            <li>Download and run the latest installer</li>
+            <li><strong>Important:</strong> Check the box that says <code>Add Python to PATH</code> before clicking "Install Now"</li>
+          </ul>
+        </li>
+        <li><strong>Mac:</strong>
+          <ul>
+            <li>Go to <a href="https://www.python.org/downloads/mac-osx/" target="_blank" rel="noopener noreferrer">python.org/downloads/mac-osx</a></li>
+            <li>Download the latest macOS <code>.pkg</code> installer</li>
+            <li>Open the installer and follow the installation steps</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Check that Python works</h3>
+      <p>Open Codex and ask: <em>"Check if I have Python installed and tell me the version."</em> If Codex reports a version number, you are set. Homework scripts and Codex both use this same Python install.</p>
+      <p><strong>Or check without AI:</strong> In VS Code, open the integrated terminal (<code>Ctrl + `</code> or <code>View &gt; Terminal</code>) and run:</p>
+      <pre class="terminal"><code>python --version</code></pre>
+      <p>If you see a version number, Python is installed.</p>
+
+      <h2 id="react">React + Node.js</h2>
+      <p>For a video walkthrough on how to install React and Node.js, see <a href="https://www.youtube.com/watch?v=BCX6UVQba4U" target="_blank" rel="noopener noreferrer">this YouTube tutorial</a>.</p>
+
+      <h3>Install Node.js</h3>
+      <ul>
+        <li>Go to <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">https://nodejs.org/</a></li>
+        <li>Download the <strong>LTS</strong> version for your operating system (recommended)</li>
+        <li>Run the installer and follow the prompts</li>
+        <li><strong>Note:</strong> The installer may offer optional tools for building native modules. If you run into errors during this step, you can safely skip installing those optional tools — React and Node.js will work fine without them.</li>
+      </ul>
+
+      <h3>Check that Node and npm work</h3>
+      <p>Open Codex and ask: <em>"Check if I have Node and npm installed and tell me the versions."</em> If Codex reports version numbers, Node.js is installed.</p>
+      <p><strong>Or check without AI:</strong> In VS Code, open the integrated terminal (<code>Ctrl + `</code> or <code>View &gt; Terminal</code>) and run:</p>
+      <pre class="terminal"><code>node -v
+npm -v</code></pre>
+      <p>If you see version numbers, Node.js is installed.</p>
+
+      <h3>Create a React app</h3>
+      <p>Create a folder for your app (e.g. <code>my-app</code>), open it in VS Code (<strong>File &gt; Open Folder</strong>), then in the integrated terminal run:</p>
+      <pre class="terminal"><code>npx create-react-app .</code></pre>
+      <p>That scaffolds the React files in the current folder. To run the app:</p>
+      <pre class="terminal"><code>npm start</code></pre>
+      <p>The app opens in your browser at <code>http://localhost:3000</code>. VS Code usually detects Node.js automatically — no path setup needed.</p>
+
+      <h2 id="github">GitHub</h2>
+      <p>Video walkthroughs for installing Git: <a href="https://www.youtube.com/watch?v=VWbX2B3Q-1g" target="_blank" rel="noopener noreferrer">Windows</a> · <a href="https://www.youtube.com/watch?v=B4qsvQ5IqWk" target="_blank" rel="noopener noreferrer">Mac</a>.</p>
+
+      <h3>Create a GitHub Account</h3>
+      <ul>
+        <li>Go to <a href="https://github.com/" target="_blank" rel="noopener noreferrer">https://github.com/</a></li>
+        <li>Click <strong>Sign up</strong> and follow the instructions to create a free account.</li>
+        <li>Verify your email address.</li>
+      </ul>
+
+      <h3>Download and Install Git</h3>
+      <ul>
+        <li><strong>Windows:</strong> Go to <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer">https://git-scm.com/download/win</a> and download the "64-bit Git for Windows Setup." Run the installer and accept the default settings.</li>
+        <li><strong>Mac:</strong> Simply open your terminal and type <code>git</code>. A popup will appear asking if you want to install the "Command Line Developer Tools." Click <strong>Install</strong>. (Alternatively, use <code>brew install git</code> if you have Homebrew).</li>
+      </ul>
+
+      <h3>Check that Git works</h3>
+      <p>Open your vibe coder and ask: <em>"Check if I have Git installed and tell me the version."</em> If it reports a version number, Git is installed.</p>
+      <p>Open a terminal in your vibe coder and run:</p>
+      <pre class="terminal"><code>git --version</code></pre>
+      <p>If you see a version number, Git is installed. If you get an error, finish the install step above and try again.</p>
+
+      <h3>Integrate GitHub with your vibe coder</h3>
+      <p>Once Git is installed, open your vibe coder and ask:</p>
+      <p><em>"Help me connect to GitHub. Set my global git user.name to Your Name and user.email to your@yale.edu, then walk me through signing in to GitHub."</em></p>
+      <p>Use the same email as your GitHub account. Your vibe coder will run the Git commands for you. When it tells you to sign in, complete the browser prompt once — it cannot do that part for you.</p>
+      <p>After that, tell your vibe coder what you want in plain English when you need to clone, commit, or push.</p>
+
+      <h2 id="vibe-coding">Vibe Coding</h2>
+      <p>
+        This is how we run vibe coding in class (and how you should start each homework or lecture project).
+        Use Codex in VS Code. Work one folder at a time.
+      </p>
+      <ol>
+        <li>
+          <strong>Open your class folder</strong> in your vibe coder
+          (<strong>File &gt; Open Folder</strong>). It should contain folders like
+          <code>Lecture 1</code>, <code>Lecture 2</code>, … and
+          <code>Homework 1</code>, <code>Homework 2</code>, and so on.
+        </li>
+        <li>
+          <strong>Tell the AI which folder you’re using today.</strong>
+          Example: <em>“Today we are working in Lecture 3. Put all my stuff there.”</em>
+        </li>
+        <li>
+          <strong>Make it prove it’s in the right folder.</strong>
+          Ask it to write a short joke there, then check that
+          <code>joke.txt</code> appears inside that lecture or homework folder.
+        </li>
+        <li>
+          <strong>Tell the AI to set up the software environment in that folder.</strong>
+          For Python, ask it to create a virtual environment (<code>venv</code>).
+          For React, ask it to scaffold a React app there.
+        </li>
+        <li>
+          <strong>Tell the AI to install the packages you need.</strong>
+          For Python, that usually means a <code>requirements.txt</code> and
+          <code>pip install -r requirements.txt</code>.
+          For React, that usually means <code>package.json</code> and
+          <code>npm install</code>.
+        </li>
+        <li>
+          <strong>Point the AI at your API keys.</strong>
+          Example: <em>“My Portkey API key is in the <code>.env</code> file in the root of my class folder.”</em>
+          Do not paste the key into chat.
+        </li>
+        <li>
+          <strong>Start vibe coding</strong> the lecture or homework project for that session.
+        </li>
+      </ol>
+
+      <h2 id="cursor">Cursor (optional)</h2>
+      <p>Cursor is another AI vibe-coding tool built on VS Code with some extra features. Codex + Portkey is what we use in class; Cursor is optional if you want to explore on your own.</p>
+      <ul>
+        <li>Sign up at
+          <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer">https://www.cursor.com</a>
+          with your <code>.edu</code> email for free student access.</li>
+        <li>Download and install Cursor from the same site.</li>
+        <li>Most VS Code extensions and shortcuts work in Cursor; the Python and GitHub steps above apply the same way.</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+
+  <footer class="site-footer">
+    <p>© 2027 Tauhid Zaman</p>
+  </footer>
+</body>
+</html>

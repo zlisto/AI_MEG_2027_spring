@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Set Up Codex with Portkey (Mac) - AI for Media, Entertainment, and Games</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>!(function(){if(localStorage.getItem("theme")!=="light")document.documentElement.setAttribute("data-theme","dark");})();</script>
+  <style>
+    .setup-page {
+      max-width: 820px;
+    }
+
+    .sidebar.setup-toc a {
+      font-size: 0.92rem;
+      padding: 0.45rem 0;
+      line-height: 1.3;
+    }
+
+    .setup-page h1 {
+      margin: 0 0 0.5rem;
+      color: var(--text-heading);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.15;
+    }
+
+    .setup-lede {
+      margin: 0 0 1.25rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .os-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .os-switch a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.25rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .os-switch a:hover {
+      border-color: var(--brand-light);
+      color: var(--link);
+    }
+
+    .os-switch a.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+    }
+
+    .setup-video {
+      margin: 0 0 1.5rem;
+      padding: 1rem 1.1rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-surface);
+    }
+
+    .setup-video p {
+      margin: 0 0 0.65rem;
+      color: var(--text-secondary);
+    }
+
+    .setup-video a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.65rem;
+      color: var(--link);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .setup-video a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    .setup-video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .setup-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .setup-callout {
+      border-left: 4px solid var(--brand);
+      background: var(--bg-surface);
+      padding: 0.9rem 1rem;
+      margin: 0 0 1.75rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .setup-callout p {
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .setup-callout p + p,
+    .setup-callout p + ol,
+    .setup-callout ol + p {
+      margin-top: 0.75rem;
+    }
+
+    .setup-callout ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.25rem;
+      color: var(--text-secondary);
+    }
+
+    .setup-callout li {
+      margin: 0.35rem 0;
+    }
+
+    .setup-callout .codebox {
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    .setup-callout.warn {
+      border-left-color: #b42318;
+      background: #fff4f2;
+    }
+
+    [data-theme="dark"] .setup-callout.warn {
+      background: #2a1514;
+      color: #f5c4bf;
+    }
+
+    .setup-callout.ok {
+      border-left-color: #18794e;
+      background: #eefaf4;
+    }
+
+    [data-theme="dark"] .setup-callout.ok {
+      background: #12281d;
+    }
+
+    .setup-callout.pink {
+      border: 1px solid #f2b8cc;
+      border-left: 4px solid #ff3d7f;
+      background: #fff4f8;
+      border-radius: 8px;
+      box-shadow: 0 1px 0 rgba(255, 61, 127, 0.08);
+      text-align: left;
+    }
+
+    .setup-callout.pink ol {
+      text-align: left;
+      list-style-position: outside;
+    }
+
+    [data-theme="dark"] .setup-callout.pink {
+      border-color: #8f3d5c;
+      border-left-color: #ff3d7f;
+      background: #2a121c;
+    }
+
+    [data-theme="dark"] .setup-callout.pink p,
+    [data-theme="dark"] .setup-callout.pink li {
+      color: #f5d4e0;
+    }
+
+    .setup-step {
+      margin: 0 0 1.75rem;
+      padding: 0 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: calc(var(--nav-sticky-offset) + 12px);
+    }
+
+    .setup-step:last-of-type {
+      border-bottom: 0;
+    }
+
+    .setup-step h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin: 0 0 0.65rem;
+      color: var(--text-heading);
+      font-size: 1.2rem;
+    }
+
+    .setup-step h2 .n {
+      flex: 0 0 auto;
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .setup-step p,
+    .setup-step li {
+      color: var(--text-secondary);
+    }
+
+    .setup-step ul,
+    .setup-step ol {
+      margin: 0.5rem 0 0.75rem;
+      padding-left: 1.25rem;
+    }
+
+    .codebox {
+      margin: 0.75rem 0;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0b1220;
+    }
+
+    .codebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.45rem 0.65rem;
+      background: #16243d;
+      color: #b8c7dc;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .codebar .copy {
+      appearance: none;
+      border: 1px solid #6b7fa3;
+      background: transparent;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.25rem 0.55rem;
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .codebox pre {
+      margin: 0;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      color: #eef6ff;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .codebox.config-file {
+      border-color: #3d8b63;
+      background: #0f1f17;
+    }
+
+    .codebox.config-file .codebar {
+      background: #1a3d2b;
+      color: #c8e6d4;
+    }
+
+    .codebox.config-file .codebar .copy {
+      border-color: #5a9e78;
+    }
+
+    .codebox.config-file pre {
+      color: #e8f7ee;
+    }
+
+    [data-theme="dark"] .codebox.config-file {
+      border-color: #4a9e6e;
+      background: #0a1812;
+    }
+
+    [data-theme="dark"] .codebox.config-file .codebar {
+      background: #143322;
+    }
+
+    .prompt-card {
+      margin: 0.75rem 0;
+      border: 1px solid #c9d6f0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #eef3fb;
+    }
+
+    .prompt-card-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.75rem;
+      background: #dce8fa;
+      border-bottom: 1px solid #c9d6f0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .prompt-card-bar .copy {
+      border: 1px solid #a8bde8;
+      background: #fff;
+      color: var(--brand);
+      border-radius: 6px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .prompt-card-bar .copy:hover {
+      background: #f5f8ff;
+    }
+
+    .prompt-card-body {
+      padding: 0.85rem 1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    [data-theme="dark"] .prompt-card {
+      background: #1a2438;
+      border-color: #3d5278;
+    }
+
+    [data-theme="dark"] .prompt-card-bar {
+      background: #243352;
+      border-bottom-color: #3d5278;
+      color: #9ec0f5;
+    }
+
+    [data-theme="dark"] .prompt-card-bar .copy {
+      background: #1a2438;
+      border-color: #4a6288;
+      color: #c5daf8;
+    }
+
+    [data-theme="dark"] .prompt-card-body {
+      color: #e8f0fc;
+    }
+
+    .mini {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--link);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--link-hover);
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html" class="active">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html">Homeworks</a></li>
+      <li><a href="project_requirements.html">Final Project</a></li>
+      <li><a href="grading.html">Grading</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+  </nav>
+
+  <div class="wrapper">
+    <nav class="sidebar setup-toc" aria-label="Setup steps">
+      <a href="#step-1">1. Install Codex</a>
+      <a href="#step-2">2. Open Terminal</a>
+      <a href="#step-3">3. Create config.toml</a>
+      <a href="#step-4">4. Configure Portkey</a>
+      <a href="#step-5">5. Save Portkey key</a>
+      <a href="#step-6">6. Verify key saved</a>
+      <a href="#step-7">7. Restart VS Code</a>
+      <a href="#step-8">8. Open Codex</a>
+      <a href="#step-9">9. Test Codex</a>
+      <a href="#step-10">10. Fix missing key</a>
+    </nav>
+
+    <main class="content setup-page">
+    <a class="back-link" href="instructions.html">← Back to Setup Instructions</a>
+    <h1>Set Up Codex in VS Code with a Portkey API Key</h1>
+    <p class="setup-lede">After you have installed VS Code on your machine, follow the steps below to install OpenAI Codex and connect it with your Portkey API key. The YouTube video below will also walk you through the steps.</p>
+
+    <div class="os-switch" role="navigation" aria-label="Operating system">
+      <a href="setup-vibe-coder.html">Windows</a>
+      <a class="active" href="setup-vibe-coder-mac.html" aria-current="page">Mac</a>
+    </div>
+
+    <div class="setup-video">
+      <p><strong>Mac walkthrough</strong></p>
+      <div class="setup-video-embed">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/uhwORrDyXVQ"
+          title="Mac Codex Portkey setup walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <a href="https://youtu.be/uhwORrDyXVQ" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+    </div>
+
+    <div class="setup-callout">
+      <p>Have your Yale Portkey API key ready. Do not paste the key into screenshots, homework zips, or GitHub.</p>
+    </div>
+
+    <section class="setup-step" id="step-1">
+      <h2><span class="n">1</span> Install Codex</h2>
+      <p>Install the <strong>Codex extension from OpenAI</strong> in VS Code (Extensions: <code>Command+Shift+X</code>, search for <strong>Codex</strong>).</p>
+      <p>Open the Codex panel. On a fresh installation, it may show:</p>
+      <ul>
+        <li>Sign in with ChatGPT</li>
+        <li>Use API Key</li>
+        <li>Use device code</li>
+      </ul>
+      <div class="setup-callout warn">
+        <p><strong>Do not select any of these.</strong> Keep going with the steps below.</p>
+      </div>
+    </section>
+
+    <section class="setup-step" id="step-2">
+      <h2><span class="n">2</span> Open a Terminal</h2>
+      <p>In VS Code, select <strong>Terminal → New Terminal</strong>. You must use <strong>zsh</strong> for the steps below. A zsh prompt ends with a <strong>%</strong> sign — not a <strong>$</strong> sign.</p>
+      <p>If your prompt shows <code>$</code> or says <code>bash</code>, switch to zsh:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>zsh</code></pre>
+      </div>
+      <p>After you run that, your prompt should end with <strong>%</strong>. Stay in this shell for Steps 3–6.</p>
+      <p>Check whether the Codex folder exists:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>test -d "$HOME/.codex" && echo True || echo False</code></pre>
+      </div>
+      <p>If it returns <code>True</code>, continue to Step 3.</p>
+      <p>If it returns <code>False</code>, create the folder:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>mkdir -p "$HOME/.codex"</code></pre>
+      </div>
+    </section>
+
+    <section class="setup-step" id="step-3">
+      <h2><span class="n">3</span> Create config.toml</h2>
+      <p>Run:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>touch "$HOME/.codex/config.toml"</code></pre>
+      </div>
+      <p>Then open it in VS Code:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>code "$HOME/.codex/config.toml"</code></pre>
+      </div>
+      <div class="setup-callout pink" id="code-command">
+        <p><strong>If <code>code</code> is not found</strong>, install it from VS Code:</p>
+        <ol>
+          <li>Open VS Code (from Applications or Spotlight if needed).</li>
+          <li>Press <code>Cmd+Shift+P</code> to open the Command Palette.</li>
+          <li>Search for <strong>Shell Command: Install 'code' command in PATH</strong> and run it.</li>
+          <li>Enter your Mac password if prompted.</li>
+          <li>Close VS Code completely (<strong>Code → Quit Visual Studio Code</strong>, or <code>Command+Q</code>), then open VS Code again.</li>
+          <li>In VS Code, open <strong>Terminal → New Terminal</strong> and run <code>code "$HOME/.codex/config.toml"</code> again.</li>
+        </ol>
+        <p>If <code>code</code> still is not found, use this instead:</p>
+        <div class="codebox">
+          <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+          <pre><code>open -a "Visual Studio Code" "$HOME/.codex/config.toml"</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup-step" id="step-4">
+      <h2><span class="n">4</span> Configure Codex to use Portkey</h2>
+      <p>Paste this into <code>config.toml</code>:</p>
+      <div class="codebox config-file">
+        <div class="codebar"><span>config.toml</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>model = "gpt-5.6-luna"
+model_provider = "portkey"
+model_reasoning_effort = "low"
+
+[model_providers.portkey]
+name = "Portkey"
+base_url = "https://api.portkey.ai/v1"
+env_key = "PORTKEY_API_KEY"</code></pre>
+      </div>
+      <p>Save the file with <strong>Command+S</strong>.</p>
+      <div class="setup-callout warn">
+        <p>Do <strong>not</strong> paste the actual Portkey API key into this file. The key goes in your shell profile in the next step. Edit this file in VS Code, not TextEdit.</p>
+      </div>
+    </section>
+
+    <section class="setup-step" id="step-5">
+      <h2><span class="n">5</span> Save the Portkey key in your shell profile</h2>
+      <p>Back in the Terminal, run (this is <strong>zsh</strong> syntax — the Mac default shell):</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>read -s "k?Paste your Portkey API key: "</code></pre>
+      </div>
+      <p>Terminal will display:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Expected prompt</span></div>
+        <pre><code>Paste your Portkey API key: </code></pre>
+      </div>
+      <p>Paste the Portkey key and press <strong>Enter</strong>. The key will not appear on screen as you paste.</p>
+      <p>Then save it to <code>~/.zshrc</code> and load it into the current terminal:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>printf '\nexport PORTKEY_API_KEY="%s"\n' "$k" >> ~/.zshrc
+unset k
+source ~/.zshrc</code></pre>
+      </div>
+      <p class="mini">Run this block only once. Running it again adds a second copy of the key line.</p>
+    </section>
+
+    <section class="setup-step" id="step-6">
+      <h2><span class="n">6</span> Verify that the key was saved</h2>
+      <p>Run:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>if grep -q 'export PORTKEY_API_KEY=' ~/.zshrc; then
+  echo "Portkey key saved"
+else
+  echo "Portkey key NOT saved"
+fi</code></pre>
+      </div>
+      <p>The expected result is:</p>
+      <div class="codebox">
+        <div class="codebar"><span>Expected result</span></div>
+        <pre><code>Portkey key saved</code></pre>
+      </div>
+      <p class="mini">This check does <strong>not</strong> display the API key.</p>
+    </section>
+
+    <section class="setup-step" id="step-7">
+      <h2><span class="n">7</span> Completely restart VS Code</h2>
+      <p>Quit VS Code fully (<strong>Code → Quit Visual Studio Code</strong>, or <code>Command+Q</code>), then reopen it.</p>
+      <p>This matters because the new VS Code process needs to inherit the <code>PORTKEY_API_KEY</code> environment variable. Once VS Code is back open, you can talk to Codex.</p>
+    </section>
+
+    <section class="setup-step" id="step-8">
+      <h2><span class="n">8</span> Open Codex</h2>
+      <p>Open the Codex panel. If everything is configured correctly, Codex should no longer require the normal OpenAI login screen.</p>
+    </section>
+
+    <section class="setup-step" id="step-9">
+      <h2><span class="n">9</span> Test Codex</h2>
+      <p>Send a simple test message, for example:</p>
+      <div class="prompt-card">
+        <div class="prompt-card-bar"><span>Test prompt</span><button class="copy" type="button">Copy</button></div>
+        <div class="prompt-card-body">Yo</div>
+      </div>
+      <p>If Codex responds, the connection is working.</p>
+      <p class="mini">If Codex says it can’t find <code>PORTKEY_API_KEY</code>, go to <a href="#step-10">Step 10</a>.</p>
+      <div class="setup-callout ok">
+        <p>The default model is <code>gpt-5.6-luna</code> because that is what is specified in <code>config.toml</code>. You can still select another available model from Codex's model picker when needed.</p>
+      </div>
+    </section>
+
+    <section class="setup-step" id="step-10">
+      <h2><span class="n">10</span> Fix: Can’t find <code>PORTKEY_API_KEY</code></h2>
+      <p>If Codex says it <strong>can’t find <code>PORTKEY_API_KEY</code></strong> after you followed Steps 1–9, you were probably in the <strong>wrong shell</strong> when you saved the key (for example <strong>bash</strong> instead of <strong>zsh</strong>). Do this:</p>
+      <ol>
+        <li>Quit VS Code completely (<strong>Code → Quit Visual Studio Code</strong>, or <code>Command+Q</code>).</li>
+        <li>Open the <strong>Terminal</strong> app (Spotlight → <strong>Terminal</strong>).</li>
+        <li>Switch to zsh — run <code>zsh</code>. Your prompt should end with <strong>%</strong>, not <strong>$</strong>.</li>
+        <li>Repeat <a href="#step-5">Step 5</a> and <a href="#step-6">Step 6</a> in <strong>this</strong> terminal window (save the key to <code>~/.zshrc</code> and verify).</li>
+        <li>From the <strong>same</strong> terminal, launch VS Code so it inherits the key:
+          <div class="codebox">
+            <div class="codebar"><span>Terminal</span><button class="copy" type="button">Copy</button></div>
+            <pre><code>code</code></pre>
+          </div>
+        </li>
+        <li>If <code>code</code> is not found, follow <a href="#code-command">Step 3 — If <code>code</code> is not found</a>, then run <code>code</code> again from the Terminal.</li>
+        <li>Open Codex and send <strong>Yo</strong> again (<a href="#step-9">Step 9</a>).</li>
+      </ol>
+    </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2027 Tauhid Zaman</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script>
+    document.querySelectorAll(".copy").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const container = button.closest(".codebox, .prompt-card");
+        const code = container.querySelector("code");
+        const text = code ? code.innerText : container.querySelector(".prompt-card-body").textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => {
+            button.textContent = old;
+          }, 1200);
+        } catch {
+          button.textContent = "Select text";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

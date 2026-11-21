@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homeworks - AI for Media, Entertainment, and Games</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>!(function(){if(localStorage.getItem("theme")!=="light")document.documentElement.setAttribute("data-theme","dark");})();</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="lectures.html">Lectures</a></li>
+      <li><a href="homeworks.html" class="active">Homeworks</a></li>
+      <li><a href="project_requirements.html">Final Project</a></li>
+      <li><a href="grading.html">Grading</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+  </nav>
+
+  <main>
+    <h1 class="schedule-header">Homework Assignments</h1>
+   
+    <div class="coming-soon">
+      <p><strong>Homeworks will be posted here as the semester goes.</strong></p>
+      <p>Each homework lives in its own folder (<code>hw1/</code>, <code>hw2/</code>, …) built from the <a href="hw_template.html">homework template</a>.</p>
+    </div>
+
+    <div class="accordion-container">
+      <!-- Add one block per homework:
+      <div class="accordion">
+        <button class="accordion-btn">Homework 1</button>
+        <div class="panel">
+          <p>One-line description.</p>
+          <p><a href="hw1/p1.html">Homework details</a></p>
+        </div>
+      </div>
+      -->
+    </div>
+  </main>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion-btn");
+    acc.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+
+  <script src="js/theme.js"></script>
+
+  <footer class="site-footer">
+    <p>© 2027 Tauhid Zaman</p>
+  </footer>
+</body>
+</html>
