@@ -725,3 +725,7 @@ img { border-color: var(--border); }
 
 .coming-soon { margin: 2rem auto; max-width: 700px; padding: 2rem 1.5rem; border: 1px dashed var(--border); border-radius: 10px; background: var(--bg-surface); color: var(--text-secondary); }
 .coming-soon strong { color: var(--brand); }
+
+.home-hero-art { max-width: min(40rem, 100%); }
+.home-hero-art img.hero-img { max-width: 100%; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 18px 60px rgba(230, 0, 126, 0.22); }
+.home-hero-art img.hero-img:hover { transform: none; }
